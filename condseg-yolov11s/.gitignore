@@ -1,0 +1,30 @@
+﻿__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+env/
+venv/
+.env
+node_modules/
+dist/
+.vite/
+*.pt
+*.pth
+.DS_Store
+Thumbs.db
+
+# runtime data
+backend/runtime/jobs/
+backend/weights/best.pt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# build output
+backend/static/index.html
+backend/static/styles.css
+backend/static/app.js
