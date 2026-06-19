@@ -1,0 +1,16 @@
+
+# 这里的 path 是根目录
+path: D:\yolo26\Fixed_Swap_Dataset
+# 下面使用绝对路径，直接指向你确认的那三个文件夹
+train: D:\yolo26\Fixed_Swap_Dataset\images\train
+val: D:\yolo26\Fixed_Swap_Dataset\images\val
+test: D:\yolo26\Fixed_Swap_Dataset\images\test
+
+# Classes
+names:
+  0: SL
+  1: Pore
+  2: Crack
+  3: LP
+  4: LF
+
