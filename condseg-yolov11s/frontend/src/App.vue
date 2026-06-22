@@ -1,10 +1,7 @@
 ﻿<script setup>
 import { computed, ref, watch, nextTick } from "vue";
 
-const API_BASE = (() => {
-  if (import.meta.env.PROD) return "";
-  return import.meta.env.VITE_API_BASE || "";
-})();
+const API_BASE = import.meta.env.VITE_API_BASE || "";
 
 const classNames = ["SL", "Pore", "Crack", "LP", "LF"];
 const statusOptions = ["unconfirmed", "confirmed", "false_positive"];

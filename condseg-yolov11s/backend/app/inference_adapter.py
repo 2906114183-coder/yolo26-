@@ -1,4 +1,4 @@
-import gc
+﻿import gc
 import importlib.util
 import os
 import threading
@@ -12,19 +12,19 @@ from ultralytics import YOLO
 
 
 BACKEND_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_LEGACY_SCRIPT = Path(r"D:\yolo26\评定脚本最终版.py")
+DEFAULT_LEGACY_SCRIPT = Path(r"D:\yolo26\璇勫畾鑴氭湰鏈€缁堢増.py")
 DEFAULT_WEIGHTS = BACKEND_DIR / "weights" / "best.pt"
 
 
 def _load_legacy_module(script_path: Path):
     if not script_path.exists():
         raise FileNotFoundError(
-            f"找不到评片脚本: {script_path}. 请设置 RATING_SCRIPT_PATH 或把脚本放到该位置。"
+            f"鎵句笉鍒拌瘎鐗囪剼鏈? {script_path}. 璇疯缃?RATING_SCRIPT_PATH 鎴栨妸鑴氭湰鏀惧埌璇ヤ綅缃€?
         )
 
     spec = importlib.util.spec_from_file_location("legacy_rating_script", script_path)
     if spec is None or spec.loader is None:
-        raise RuntimeError(f"无法加载评片脚本: {script_path}")
+        raise RuntimeError(f"鏃犳硶鍔犺浇璇勭墖鑴氭湰: {script_path}")
 
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -40,7 +40,7 @@ def _write_image(path: Path, image) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     ok, encoded = cv2.imencode(path.suffix or ".jpg", image)
     if not ok:
-        raise RuntimeError(f"无法编码结果图片: {path}")
+        raise RuntimeError(f"鏃犳硶缂栫爜缁撴灉鍥剧墖: {path}")
     encoded.tofile(str(path))
 
 
@@ -74,8 +74,8 @@ class RatingEngine:
             return legacy_default
 
         raise FileNotFoundError(
-            "找不到模型权重。请把 best.pt 放到 backend/weights/best.pt，"
-            "或设置 MODEL_WEIGHTS_PATH 指向训练好的权重文件。"
+            "鎵句笉鍒版ā鍨嬫潈閲嶃€傝鎶?best.pt 鏀惧埌 backend/weights/best.pt锛?
+            "鎴栬缃?MODEL_WEIGHTS_PATH 鎸囧悜璁粌濂界殑鏉冮噸鏂囦欢銆?
         )
 
     def _ensure_model(self):
@@ -94,7 +94,7 @@ class RatingEngine:
 
         frame_orig = _read_image(image_path)
         if frame_orig is None:
-            raise ValueError(f"无法读取图片: {image_path.name}")
+            raise ValueError(f"鏃犳硶璇诲彇鍥剧墖: {image_path.name}")
 
         original_height, original_width = frame_orig.shape[:2]
         was_rotated = False
