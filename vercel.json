@@ -1,8 +1,8 @@
 {
   "framework": null,
-  "buildCommand": "cd frontend && npm run build",
-  "outputDirectory": "frontend/dist",
-  "installCommand": "cd frontend && npm install",
+  "buildCommand": "cd condseg-yolov11s/frontend && npm run build",
+  "outputDirectory": "condseg-yolov11s/frontend/dist",
+  "installCommand": "cd condseg-yolov11s/frontend && npm install",
   "rewrites": [
     {
       "source": "/(.*)",
